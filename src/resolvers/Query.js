@@ -3,6 +3,12 @@ const echo = (parent, args, context, info) => {
     return `${msg}`;
 }
 
+const posts = (parent, args, context, info) => {
+    return require('../../test/fixtures/posts.json');
+
+}
+
 module.exports = {
-    echo
+    echo,
+    posts
 };
