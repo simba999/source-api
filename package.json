@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
     "start": "NODE_ENV=production node ./src/index.js",
-    "inspect": "node --inspect ./src/index.js",
+    "inspect": "nodemon --inspect ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,5 +14,8 @@
   "license": "MIT",
   "dependencies": {
     "graphql-yoga": "^1.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
   }
 }
