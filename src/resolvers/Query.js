@@ -7,8 +7,8 @@ const echo = (parent, args, context, info) => {
     return `${msg}`;
 };
 
-const posts = (parent, args, context, info) => {
-    return readDirectory("content")
+const posts = (parent, args, context, info) =>
+    readDirectory("content")
         .then(files => files.filter(file => file.includes(".md")))
         .then(markdownFiles =>
             markdownFiles.map(file =>
@@ -27,7 +27,6 @@ const posts = (parent, args, context, info) => {
                 content: post.content
             }))
         );
-};
 
 const post = async (parent, args, context, info) => {
     const markdownContent = await readFile(`content/${args.id}.md`);
