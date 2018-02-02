@@ -3,7 +3,7 @@ const processMarkdown = require("../../lib/process-markdown");
 
 const testMarkdownContent = `
 ---
-path: "/blog/hello-world"
+path: "hello-world"
 date: "2018-01-26"
 title: "Hello World"
 ---
@@ -34,7 +34,7 @@ test("it calls readFile with the correct args", () => {
 test('it should return the correct data', () => {
     const result = post({}, args, context).then(data => {
         expect(data.content).toBe('<p>Hello world, this is the initial post!</p>\n');
-        expect(data.id).toBe('/blog/hello-world');
+        expect(data.id).toBe('hello-world');
         expect(data.title).toBe('Hello World');
     });
 })
