@@ -7,15 +7,20 @@
     "start": "nodemon ./src/index.js",
     "now-start": "NODE_ENV=production node ./src/index.js",
     "inspect": "nodemon --inspect ./src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "graphql-yoga": "^1.2.1"
+    "graphql-yoga": "^1.2.1",
+    "remark": "^9.0.0",
+    "remark-frontmatter": "^1.2.0",
+    "remark-html": "^7.0.0",
+    "remark-parse-yaml": "0.0.1"
   },
   "devDependencies": {
+    "jest": "^22.1.4",
     "nodemon": "^1.14.11"
   }
 }
