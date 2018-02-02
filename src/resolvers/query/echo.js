@@ -1,4 +1,4 @@
-module.exports = (parent, args, context, info) => {
-    const { msg } = args;
+module.exports = (parent, args) => {
+    const {msg} = args;
     return `${msg}`;
 };

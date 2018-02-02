@@ -1,15 +1,24 @@
 {
   "name": "sourcier-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Graphql API for sourcier.uk webpage",
+  "main": "./src/index.js",
   "scripts": {
     "start": "nodemon ./src/index.js",
-    "now-start": "NODE_ENV=production node ./src/index.js",
     "inspect": "nodemon --inspect ./src/index.js",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ./src",
+    "precommit": "npm run lint; npm run test",
+    "prepush": "npm run lint; npm run test",
+    "now-start": "NODE_ENV=production node ./src/index.js",
+    "now-deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm --public",
+    "now-alias": "now alias --token=$NOW_TOKEN"
   },
-  "keywords": [],
+  "keywords": [
+    "node",
+    "graphql-server",
+    "api-server"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
@@ -18,10 +27,21 @@
     "remark-frontmatter": "^1.2.0",
     "remark-html": "^7.0.0",
     "remark-parse-yaml": "0.0.1",
-    "sourcier-content": "git@github.com:sourcier/sourcier-content.git"
+    "sourcier-content": "https://github.com/sourcier/sourcier-content.git"
   },
   "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-plugin-jest": "^21.7.0",
+    "husky": "^0.14.3",
     "jest": "^22.1.4",
-    "nodemon": "^1.14.11"
+    "nodemon": "^1.14.11",
+    "now": "^9.2.7"
+  },
+  "now": {
+    "name": "sourcier-api",
+    "alias": "sourcier-api.now.sh"
+  },
+  "engines": {
+    "node": "^8.9.4"
   }
 }

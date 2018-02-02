@@ -3,8 +3,8 @@ const html = require("remark-html");
 const frontmatter = require("remark-frontmatter");
 const yamlParser = require("remark-parse-yaml");
 
-processFrontmatter = node => {
-    const frontmatter = node.children.filter(child => child.type === "yaml");
+const processFrontmatter = node => {
+    const frontmatter = node.children.filter(child => "yaml" === child.type);
     return frontmatter[0].data.parsedValue;
 };
 

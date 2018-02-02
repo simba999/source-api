@@ -1,5 +1,5 @@
-module.exports = (parent, args, context, info) => {
-    const { processMarkdown, fs: {readFile} } = context;
+module.exports = (parent, args, context) => {
+    const {processMarkdown, fs: {readFile}} = context;
     return readFile(`${args.id}.md`).then(content =>
         processMarkdown(content).then(markdownContent => ({
             id: markdownContent.frontmatter.path,

@@ -1,0 +1,22 @@
+{
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "impliedStrict": true,
+            "experimentalObjectRestSpread": true
+        }
+    },
+    "plugins": ["jest"],
+    "env": {
+        "node": true,
+        "es6": true,
+        "jest/globals": true
+    },
+    "rules": {
+        "indent": ["error", 4],
+        "yoda": ["error", "always"],
+        "block-spacing": ["error", "always"],
+        "array-bracket-spacing": [2,"never"],
+        "object-curly-spacing": [2,"never"]
+    }
+}
