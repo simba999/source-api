@@ -1,14 +1,11 @@
-const readFile = require("../lib/read-file");
-const readDirectory = require("../lib/read-directory");
-const processMarkdown = require("../lib/process-markdown");
-
 const echo = (parent, args, context, info) => {
     const { msg } = args;
     return `${msg}`;
 };
 
-const posts = (parent, args, context, info) =>
-    readDirectory("content")
+const posts = (parent, args, context, info) => {
+    const { processMarkdown, fs: {readFile, readDirectory} } = context;
+    return readDirectory("content")
         .then(files => files.filter(file => file.includes(".md")))
         .then(markdownFiles =>
             Promise.all(
@@ -27,15 +24,18 @@ const posts = (parent, args, context, info) =>
                 }))
             )
         );
+};
 
-const post = (parent, args, context, info) =>
-    readFile(`content/${args.id}.md`).then(content =>
+const post = (parent, args, context, info) => {
+    const { processMarkdown, fs: {readFile} } = context;
+    return readFile(`content/${args.id}.md`).then(content =>
         processMarkdown(content).then(markdownContent => ({
             id: markdownContent.frontmatter.path,
             title: markdownContent.frontmatter.title,
             content: markdownContent.content
         }))
     );
+};
 
 module.exports = {
     echo,
