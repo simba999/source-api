@@ -11,21 +11,21 @@ const posts = (parent, args, context, info) =>
     readDirectory("content")
         .then(files => files.filter(file => file.includes(".md")))
         .then(markdownFiles =>
-            markdownFiles.map(file =>
-                readFile(`content/${file}`).then(rawContent =>
-                    processMarkdown(rawContent).then(
-                        processedContent => processedContent
+            Promise.all(
+                markdownFiles.map(file =>
+                    readFile(`content/${file}`).then(rawContent =>
+                        processMarkdown(rawContent).then(
+                            processedContent => processedContent
+                        )
                     )
                 )
+            ).then(posts =>
+                posts.map(post => ({
+                    id: post.frontmatter.path,
+                    title: post.frontmatter.title,
+                    content: post.content
+                }))
             )
-        )
-        .then(posts => Promise.all(posts).then(data => data))
-        .then(posts =>
-            posts.map(post => ({
-                id: post.frontmatter.path,
-                title: post.frontmatter.title,
-                content: post.content
-            }))
         );
 
 const post = async (parent, args, context, info) => {
