@@ -1,9 +1,11 @@
 const fs = require('fs');
+const path = require('path');
 
 module.exports = filename => {
     return new Promise((resolve, reject) => {
         try {
-            fs.readFile(`${__dirname}/../${filename}`, (err, buffer) => {
+            const filePath = path.resolve(__dirname, '../../node_modules/sourcier-content', filename)
+            fs.readFile(filePath, (err, buffer) => {
                 if(err) {
                     reject(err);
                 }

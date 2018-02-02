@@ -17,7 +17,8 @@
     "remark": "^9.0.0",
     "remark-frontmatter": "^1.2.0",
     "remark-html": "^7.0.0",
-    "remark-parse-yaml": "0.0.1"
+    "remark-parse-yaml": "0.0.1",
+    "sourcier-content": "git@github.com:sourcier/sourcier-content.git"
   },
   "devDependencies": {
     "jest": "^22.1.4",

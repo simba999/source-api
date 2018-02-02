@@ -1,11 +1,21 @@
+const filterUnwantedFiles = files =>
+    files
+        .filter(file => file.includes(".md"))
+        .filter(file => !file.includes("LICENSE.md"))
+        .filter(file => !file.includes("README.md"));
+
 module.exports = (parent, args, context, info) => {
-    const { processMarkdown, fs: {readFile, readDirectory} } = context;
-    return readDirectory("content")
-        .then(files => files.filter(file => file.includes(".md")))
+    const { path, processMarkdown, fs: { readFile, readDirectory } } = context;
+    const contentPath = path.resolve(
+        __dirname,
+        "../../../node_modules/sourcier-content"
+    );
+    return readDirectory(contentPath)
+        .then(files => filterUnwantedFiles(files))
         .then(markdownFiles =>
             Promise.all(
                 markdownFiles.map(file =>
-                    readFile(`content/${file}`).then(rawContent =>
+                    readFile(file).then(rawContent =>
                         processMarkdown(rawContent).then(
                             processedContent => processedContent
                         )

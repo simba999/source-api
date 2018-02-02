@@ -1,4 +1,5 @@
 const {GraphQLServer} = require('graphql-yoga');
+const path = require('path');
 
 const Query = require('./resolvers/query');
 const readFile = require("./lib/read-file");
@@ -20,7 +21,8 @@ const server = new GraphQLServer({
             readFile,
             readDirectory
         },
-        processMarkdown
+        processMarkdown,
+        path
     })
 });
 

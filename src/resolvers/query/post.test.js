@@ -28,7 +28,7 @@ test("it calls readFile once", () => {
 
 test("it calls readFile with the correct args", () => {
     const result = post({}, args, context);
-    expect(readFile.mock.calls[0][0]).toBe("content/hello-world.md");
+    expect(readFile.mock.calls[0][0]).toBe("hello-world.md");
 });
 
 test('it should return the correct data', () => {
