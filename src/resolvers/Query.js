@@ -28,15 +28,14 @@ const posts = (parent, args, context, info) =>
             )
         );
 
-const post = async (parent, args, context, info) => {
-    const markdownContent = await readFile(`content/${args.id}.md`);
-    const processedMarkdown = await processMarkdown(markdownContent);
-    return {
-        id: processedMarkdown.frontmatter.path,
-        title: processedMarkdown.frontmatter.title,
-        content: processedMarkdown.content
-    };
-};
+const post = (parent, args, context, info) =>
+    readFile(`content/${args.id}.md`).then(content =>
+        processMarkdown(content).then(markdownContent => ({
+            id: markdownContent.frontmatter.path,
+            title: markdownContent.frontmatter.title,
+            content: markdownContent.content
+        }))
+    );
 
 module.exports = {
     echo,
