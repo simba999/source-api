@@ -31,7 +31,7 @@ const options = {
     playground: isDevelopment ? "/" : false
 };
 
-server.express.get('/', (req, res) => res.sendStatus(204));
+server.express.get('/', (req, res) => res.sendStatus(200));
 
 server.start(options, ({port}) => {
     // eslint-disable-next-line no-console
