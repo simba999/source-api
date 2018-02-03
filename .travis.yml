@@ -13,3 +13,4 @@ deploy:
     branch: master
 after_deploy:
   - yarn now-alias
+  - yarn now-rm

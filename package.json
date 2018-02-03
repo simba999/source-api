@@ -12,7 +12,8 @@
     "prepush": "npm run lint; npm run test",
     "now-start": "NODE_ENV=production node ./src/index.js",
     "now-deploy": "now -e NODE_ENV=production --token $NOW_TOKEN --npm --public",
-    "now-alias": "now alias --token=$NOW_TOKEN"
+    "now-alias": "now alias --token=$NOW_TOKEN",
+    "now-rm": "now rm sourcier-api --token=$NOW_TOKEN --safe --yes"
   },
   "keywords": [
     "node",
