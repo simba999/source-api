@@ -6,11 +6,10 @@
             "experimentalObjectRestSpread": true
         }
     },
-    "plugins": ["jest"],
     "env": {
         "node": true,
         "es6": true,
-        "jest/globals": true
+        "jest": true
     },
     "rules": {
         "indent": ["error", 4],
