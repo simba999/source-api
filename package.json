@@ -20,8 +20,9 @@
     "graphql-server",
     "api-server"
   ],
-  "author": "",
+  "author": "Roger Rajaratnam <roger@sourcier.uk>",
   "license": "MIT",
+  "private": true,
   "dependencies": {
     "graphql-yoga": "^1.2.1",
     "remark": "^9.0.0",
