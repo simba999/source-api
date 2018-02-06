@@ -28,7 +28,9 @@ const server = new GraphQLServer({
 
 const options = {
     port: process.env.PORT || 4000,
-    playground: isDevelopment ? "/" : false
+    playground: isDevelopment ? "/playground" : false,
+    endpoint: '/graphql',
+    subscriptions: '/subscriptions'
 };
 
 server.express.get('/', (req, res) => res.sendStatus(200));
