@@ -24,6 +24,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "dotenv": "^5.0.0",
     "graphql-yoga": "^1.2.1",
     "remark": "^9.0.0",
     "remark-frontmatter": "^1.2.0",
@@ -37,10 +38,6 @@
     "jest": "^22.1.4",
     "nodemon": "^1.14.11",
     "now": "^9.2.7"
-  },
-  "now": {
-    "name": "sourcier-api",
-    "alias": "sourcier-api.now.sh"
   },
   "engines": {
     "node": "^8.9.4"

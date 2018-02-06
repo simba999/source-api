@@ -1,3 +1,4 @@
+require('dotenv').config();
 const {GraphQLServer} = require("graphql-yoga");
 const path = require("path");
 
@@ -27,7 +28,7 @@ const server = new GraphQLServer({
 });
 
 const options = {
-    port: process.env.PORT || 4000,
+    port: process.env.PORT,
     playground: isDevelopment ? "/playground" : false,
     endpoint: '/graphql',
     subscriptions: '/subscriptions'
