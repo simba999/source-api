@@ -14,3 +14,9 @@ deploy:
 after_deploy:
   - yarn now-alias
   - yarn now-rm
+notifications:
+  email:
+    recipients:
+      - roger@sourcier.uk
+    on_success: never
+    on_failure: always
