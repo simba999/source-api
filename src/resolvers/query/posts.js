@@ -4,7 +4,7 @@ const filterUnwantedFiles = files =>
         .filter(file => !file.includes("LICENSE.md"))
         .filter(file => !file.includes("README.md"));
 
-module.exports = (parent, args, context) => {
+module.exports = (obj, args, context) => {
     const {path, processMarkdown, fs: {readFile, readDirectory}} = context;
     const contentPath = path.resolve(
         __dirname,

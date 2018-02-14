@@ -1,4 +1,4 @@
-type Query {
+module.exports = `type Query {
     echo(msg: String!): String
     posts: [Post!]!
     post(id: String!): Post!
@@ -9,3 +9,4 @@ type Post {
     title: String!
     content: String!
 }
+`;

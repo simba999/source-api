@@ -1,4 +1,4 @@
-module.exports = (parent, args, context) => {
+module.exports = (obj, args, context) => {
     const {processMarkdown, fs: {readFile}} = context;
     return readFile(`${args.id}.md`).then(content =>
         processMarkdown(content).then(markdownContent => ({
