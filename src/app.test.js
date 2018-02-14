@@ -32,7 +32,20 @@ test("should load /playground in dev", () => {
         });
 });
 
-test("should respond to echo query", () => {
+test("sends correct cors headers in options request to /graphql", () => {
+    const app = App({});
+    return request(app)
+        .options("/")
+        .set('Access-Control-Request-Headers', 'content-type')
+        .set("Access-Control-Request-Method", "POST")
+        .then(res => {
+            expect(res.header['access-control-allow-origin']).toBe("*");
+            expect(res.header['access-control-allow-headers']).toBe("content-type");
+            expect(res.header['access-control-allow-methods']).toBe("GET,HEAD,PUT,PATCH,POST,DELETE");
+        });
+});
+
+test("should respond to echo query to /graphql", () => {
     const app = App({});
     return request(app)
         .post("/graphql")

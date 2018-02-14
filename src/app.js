@@ -1,6 +1,7 @@
 const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require('cors');
 const {graphqlExpress} = require("apollo-server-express");
 const {makeExecutableSchema} = require("graphql-tools");
 
@@ -20,6 +21,8 @@ module.exports = opts => {
     const {graphQlEndpoint = "/graphql", graphQlPlaygroundEndpoint = "/playground"} = opts;
 
     const app = express();
+
+    app.use(cors());
 
     app.get("/", (req, res) => res.sendStatus(200));
 
