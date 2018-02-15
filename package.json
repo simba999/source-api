@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon ./server.js",
     "inspect": "nodemon --inspect ./server.js",
-    "test": "jest",
+    "test": "jest --bail",
     "lint": "eslint ./src",
     "precommit": "npm run lint; npm run test",
     "prepush": "npm run lint; npm run test",
