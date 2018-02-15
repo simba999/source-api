@@ -20,3 +20,5 @@ notifications:
       - roger@sourcier.uk
     on_success: never
     on_failure: always
+git:
+  depth: 1
